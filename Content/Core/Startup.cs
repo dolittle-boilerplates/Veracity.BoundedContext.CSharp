@@ -1,8 +1,11 @@
 using Autofac;
 using Dolittle.AspNetCore.Bootstrap;
 using Dolittle.DependencyInversion.Autofac;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
@@ -14,12 +17,16 @@ namespace Core
     {
         readonly IHostingEnvironment _hostingEnvironment;
         readonly ILoggerFactory _loggerFactory;
+        readonly IVeracityOpenIdManager _veracityOpenIdManager;
         BootResult _bootResult;
 
-        public Startup(IHostingEnvironment hostingEnvironment, ILoggerFactory loggerFactory)
+        
+
+        public Startup(IHostingEnvironment hostingEnvironment, ILoggerFactory loggerFactory, IVeracityOpenIdManager veracityOpenIdManager)
         {
             _hostingEnvironment = hostingEnvironment;
             _loggerFactory = loggerFactory;
+            _veracityOpenIdManager = veracityOpenIdManager;
         }
 
         public void ConfigureServices(IServiceCollection services)
