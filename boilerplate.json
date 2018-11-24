@@ -1,0 +1,8 @@
+{
+    "name": "Veracity Bounded Context Adornment",
+    "language": "csharp",
+    "type": "boundedContext-adornment",
+    "parent": "https://github.com/dolittle-boilerplates/CSharp.BoundedContext",
+    "tags": ["veracity"],
+    "description": "This is an adornment to a bounded context"
+ }
