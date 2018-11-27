@@ -11,7 +11,7 @@ namespace Core
 {
     public static class Accounts
     {
-        public static void AddAccountsManagement(this IApplicationBuilder app)
+        public static void UseAccountsManagement(this IApplicationBuilder app)
         {
          var routeBuilder = new RouteBuilder(app);
             routeBuilder.MapGet("/Accounts/signin", async (request, response, routeData) => 
