@@ -1,20 +1,20 @@
 @import '../../styles/Settings/all.scss';
 .account {
-    display:flex;
-    justify-content: center;
-    padding: $grid-gutter;
-    h1{
-        font-weight: 300;
-    }
-.signin-button{
-    color:$color-gray-dark;
+  padding: $grid-gutter;
+  flex: 0 0 3rem;
+  text-align: center;
+  h1 {
+    font-weight: 300;
+  }
+  .signin-button {
+    color: $color-gray-dark;
     font-weight: 300;
     font-size: 1.25rem;
-    padding:$grid-gutter/2 $grid-gutter;
+    padding: $grid-gutter/2 $grid-gutter;
     border: 0.0625rem solid $color-gray-dark;
     text-transform: uppercase;
     letter-spacing: 0.0625rem;
     display: inline-block;
     white-space: nowrap;
-}
+  }
 }
