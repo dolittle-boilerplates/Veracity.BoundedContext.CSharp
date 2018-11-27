@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Autofac;
 using Dolittle.AspNetCore.Bootstrap;
 using Dolittle.DependencyInversion.Autofac;
@@ -6,10 +7,16 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
 using Veracity.Authentication.OpenIDConnect.Core;
+
+using Microsoft.AspNetCore.Authentication;
+using Newtonsoft.Json;
+using Dolittle.Serialization.Json;
+using System.Security.Claims;
 
 namespace Core
 {
@@ -19,8 +26,6 @@ namespace Core
         readonly ILoggerFactory _loggerFactory;
         readonly IVeracityOpenIdManager _veracityOpenIdManager;
         BootResult _bootResult;
-
-        
 
         public Startup(IHostingEnvironment hostingEnvironment, ILoggerFactory loggerFactory, IVeracityOpenIdManager veracityOpenIdManager)
         {
@@ -37,7 +42,7 @@ namespace Core
                 {
                     c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
                 });
-            }
+            }            
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddAuthentication(sharedOptions =>
@@ -45,7 +50,7 @@ namespace Core
                     sharedOptions.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                     sharedOptions.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
                 })
-                .AddCookie(c => c.LoginPath = new PathString("/account/signin"))
+                .AddCookie(c => c.LoginPath = new PathString("/Accounts/signin"))
                 .AddOpenIdConnect(_veracityOpenIdManager.GetOpenIdOptions());
             services.AddHttpClient<VeracityPlatformService>();
 
@@ -76,12 +81,15 @@ namespace Core
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
+            app.UseSession();
             app.UseAuthentication();
             app.UseMvc();
 
-            app.UseDolittle();
+            app.UseAccountsManagement();
+
+            app.UseDolittle();           
+            
             app.RunAsSinglePageApplication();
         }
-
-    }
+    }   
 }

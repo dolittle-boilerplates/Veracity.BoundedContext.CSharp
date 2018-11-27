@@ -1,0 +1,10 @@
+<template>
+    <require from="./account.scss"></require>
+
+    <header class="account">      
+        <a if.bind="signedIn == false" href="#" class="signin-button" click.delegate="signIn()">Sign in with Veracity</a>
+        <h1 if.bind="signedIn == true">
+            Hello, ${status.name} (${status.dnvglAccountName})
+        </h1>
+    </header>
+</template>
