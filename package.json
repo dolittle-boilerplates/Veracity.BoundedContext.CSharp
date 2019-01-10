@@ -1,0 +1,21 @@
+{
+  "name": "@dolittle/boilerplates.bounded-context.veracity.csharp",
+  "version": "1.0.0",
+  "description": "Standard veracity bounded context boilerPlates",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dolittle-boilerplates/Veracity.CSharp.BoundedContext.git"
+  },
+  "keywords": [
+    "dolittle", "boilerplates", "bounded-context"
+  ],
+  "author": "Dolittle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dolittle-boilerplates/Veracity.CSharp.BoundedContext/issues"
+  },
+  "publishConfig": {
+      "access": "public"
+  },
+  "homepage": "https://dolittle.io"
+}
