@@ -1,7 +1,7 @@
 {
     "name": "Veracity Bounded Context Adornment",
     "language": "csharp",
-    "type": "boundedContext-adornment",
+    "type": "adornment",
     "parent": {
         "language": "csharp",
         "type": "boundedContext"
