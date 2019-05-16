@@ -1,22 +1,15 @@
-using System.Threading.Tasks;
 using Autofac;
-using Dolittle.AspNetCore.Bootstrap;
+using Dolittle.Booting;
 using Dolittle.DependencyInversion.Autofac;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
 using Veracity.Authentication.OpenIDConnect.Core;
-
-using Microsoft.AspNetCore.Authentication;
-using Newtonsoft.Json;
-using Dolittle.Serialization.Json;
-using System.Security.Claims;
 
 namespace Core
 {
@@ -25,7 +18,7 @@ namespace Core
         readonly IHostingEnvironment _hostingEnvironment;
         readonly ILoggerFactory _loggerFactory;
         readonly IVeracityOpenIdManager _veracityOpenIdManager;
-        BootResult _bootResult;
+        BootloaderResult _bootResult;
 
         public Startup(IHostingEnvironment hostingEnvironment, ILoggerFactory loggerFactory, IVeracityOpenIdManager veracityOpenIdManager)
         {

@@ -7,5 +7,23 @@
         "type": "boundedContext"
     },
     "tags": ["veracity"],
-    "description": "This is an adornment to a bounded context"
+    "namespace": "veracity",
+    "description": "This is an adornment to a C# bounded context for Veracity",
+    "scripts": {
+        "creation": [
+            {
+                "cmd": "dotnet",
+                "args": ["add", "package", "Veracity.Authentication.OpenIDConnect.Core", "-v", "1.0.0"],
+                "cwd": "Core"
+            },{
+                "cmd": "dotnet",
+                "args": ["add", "package", "Microsoft.AspNetCore.All", "-v", "2.1.4"],
+                "cwd": "Core"
+            },{
+                "cmd": "dotnet",
+                "args": ["restore"],
+                "cwd": "Core"
+            }
+        ]
+    }
  }
