@@ -12,17 +12,17 @@
     "scripts": {
         "creation": [
             {
-                "cmd": "dotnet",
-                "args": ["add", "package", "Veracity.Authentication.OpenIDConnect.Core", "-v", "1.0.0"],
-                "cwd": "Core"
+                "command": "dotnet",
+                "arguments": ["add", "package", "Veracity.Authentication.OpenIDConnect.Core", "-v", "1.0.0"],
+                "currentWorkingDirectory": "Core"
             },{
-                "cmd": "dotnet",
-                "args": ["add", "package", "Microsoft.AspNetCore.All", "-v", "2.1.4"],
-                "cwd": "Core"
+                "command": "dotnet",
+                "arguments": ["add", "package", "Microsoft.AspNetCore.All", "-v", "2.1.4"],
+                "currentWorkingDirectory": "Core"
             },{
-                "cmd": "dotnet",
-                "args": ["restore"],
-                "cwd": "Core"
+                "command": "dotnet",
+                "arguments": ["restore"],
+                "currentWorkingDirectory": "Core"
             }
         ]
     }
